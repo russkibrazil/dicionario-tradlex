@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C8744FE-BD95-46B3-994F-B127AB97AB2B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>dicionario</RootNamespace>
+    <AssemblyName>dicionario</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>pt-BR</TargetCulture>
+    <ProductName>Dicionario</ProductName>
+    <PublisherName>Estudos da língua Interlex</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\dicionario.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>29C296A374F25E57131F9F64338FA424A46B825D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>dicionario_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>dicionario.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.6\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frm_Equivalente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Equivalente.Designer.cs">
+      <DependentUpon>frm_Equivalente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HelperBd.cs" />
+    <Compile Include="Helpers\InformaDiag.cs" />
+    <Compile Include="Model\Conjugacao.cs" />
+    <Compile Include="frm_conjuga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_conjuga.Designer.cs">
+      <DependentUpon>frm_conjuga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_categoriaGramatical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_categoriaGramatical.Designer.cs">
+      <DependentUpon>frm_categoriaGramatical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_controledeusuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_controledeusuario.Designer.cs">
+      <DependentUpon>frm_controledeusuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_configuracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_configuracao.Designer.cs">
+      <DependentUpon>frm_configuracao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_contato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_contato.Designer.cs">
+      <DependentUpon>frm_contato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Edit.Designer.cs">
+      <DependentUpon>frm_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_busca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_busca.Designer.cs">
+      <DependentUpon>frm_busca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_referencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_referencia.Designer.cs">
+      <DependentUpon>frm_referencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportaCsv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportaCsv.designer.cs">
+      <DependentUpon>ImportaCsv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CategoriaGramatical.cs" />
+    <Compile Include="Model\ConectaBanco.cs" />
+    <Compile Include="frm_rubrica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_rubrica.Designer.cs">
+      <DependentUpon>frm_rubrica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Model\Equivalente.cs" />
+    <Compile Include="Model\Itabelas.cs" />
+    <Compile Include="Model\Palavra.cs" />
+    <Compile Include="Model\Rubrica.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frm_visualizaverbete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_visualizaverbete.Designer.cs">
+      <DependentUpon>frm_visualizaverbete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Referencia.cs" />
+    <EmbeddedResource Include="frm_conjuga.resx">
+      <DependentUpon>frm_conjuga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_categoriaGramatical.resx">
+      <DependentUpon>frm_categoriaGramatical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_controledeusuario.resx">
+      <DependentUpon>frm_controledeusuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_busca.resx">
+      <DependentUpon>frm_busca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_configuracao.resx">
+      <DependentUpon>frm_configuracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_contato.resx">
+      <DependentUpon>frm_contato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Edit.resx">
+      <DependentUpon>frm_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Equivalente.resx">
+      <DependentUpon>frm_Equivalente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_referencia.resx">
+      <DependentUpon>frm_referencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_rubrica.resx">
+      <DependentUpon>frm_rubrica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_visualizaverbete.resx">
+      <DependentUpon>frm_visualizaverbete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportaCsv.resx">
+      <DependentUpon>ImportaCsv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="dicionario_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\MySqlCommand.xml" />
+    <Content Include="docs\MySqlCommandBuilder.xml" />
+    <Content Include="docs\MySqlConnection.xml" />
+    <Content Include="docs\MySqlConnectionStringBuilder.xml" />
+    <Content Include="docs\MySqlDataAdapter.xml" />
+    <Content Include="docs\MySqlDataReader.xml" />
+    <Content Include="docs\MySqlException.xml" />
+    <Content Include="docs\MySqlHelper.xml" />
+    <Content Include="docs\MySqlParameter.xml" />
+    <Content Include="docs\MySqlParameterCollection.xml" />
+    <Content Include="docs\MySqlTransaction.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
