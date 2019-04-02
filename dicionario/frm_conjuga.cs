@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using dicionario.Model;
+using dicionario.Helpers;
 
 namespace dicionario
 {
     public partial class frm_conjuga : Form
     {
         Conjugacao conjuga = new Conjugacao();
-        ConectaBanco banco = new ConectaBanco("dicionario", "root", "gamesjoker");
         CRUD crud = new CRUD();
         public frm_conjuga(int reg)
         {
             InitializeComponent();
-            List<Conjugacao> p = Conjugacao.ConverteObject(crud.SelecionarTabela("conjugacao", Conjugacao.ToListTabela(true), "idconjugacao=" + reg.ToString()));
+            List<Conjugacao> p = Conjugacao.ConverteObject(crud.SelecionarTabela("conjugacao", Conjugacao.ToListTabela(true), "idConjugacao=" + reg.ToString()));
             conjuga = p.First();
 
         }
@@ -28,40 +26,31 @@ namespace dicionario
         {
             Conjugacao nconj = new Conjugacao();
             nconj.id = conjuga.id;
-            nconj.presente = txtPresente.Text;
-            nconj.futuro = txtFuturo.Text;
-            nconj.preterito = txtPreterito.Text;
-            crud.UpdateLine("conjugacao", Conjugacao.ToListTabela(), nconj.ToListValores(), "idconjugacao=" + nconj.id.ToString());
+            nconj.ExPresente = txtPresente.Text;
+            nconj.ExFuturo = txtFuturo.Text;
+            nconj.ExPreterito = txtPreterito.Text;
+            nconj.ConstrFuturo = txtCFuturo.Text;
+            nconj.ConstrPresente = txtCPresente.Text;
+            nconj.ConstrPreterito = txtCPassado.Text;
+            crud.UpdateLine(tabelasBd.CONJUGACAO, Conjugacao.ToListTabela(), nconj.ToListValores(), "idConjugacao=" + nconj.id.ToString());
+            conjuga = nconj;
         }
 
         private void frm_conjuga_Load(object sender, EventArgs e)
         {
-            txtFuturo.Text = conjuga.futuro;
-            txtPresente.Text = conjuga.presente;
-            txtPreterito.Text = conjuga.preterito;
-        }
-        private void btnLimpaPr_Click(object sender, EventArgs e)
-        {
-            txtPreterito.Text = String.Empty;
-        }
-
-        private void btnLimpaPe_Click(object sender, EventArgs e)
-        {
-            txtPresente.Text = String.Empty;
-        }
-
-        private void btnLimpaFu_Click(object sender, EventArgs e)
-        {
-            txtFuturo.Text = String.Empty;
+            txtFuturo.Text = conjuga.ExFuturo;
+            txtPresente.Text = conjuga.ExPresente;
+            txtPreterito.Text = conjuga.ExPreterito;
+            txtCFuturo.Text = conjuga.ConstrFuturo;
+            txtCPresente.Text = conjuga.ConstrPresente;
+            txtCPassado.Text = conjuga.ConstrPreterito;
         }
 
         private void btnDescarta_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Serão carregadas as informações previamente salvas e\ntodas as alterações serão perdidas. Continuar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if(InformaDiag.ConfirmaSN("Serão carregadas as informações previamente salvas e\ntodas as alterações serão perdidas. Continuar?") == DialogResult.Yes)
             {
-                btnLimpaFu_Click(sender, e);
-                btnLimpaPe_Click(sender, e);
-                btnLimpaPr_Click(sender, e);
+                frm_conjuga_Load(sender, e);
             }
         }
     }

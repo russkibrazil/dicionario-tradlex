@@ -180,9 +180,9 @@ namespace dicionario
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            if(txtpalavra.Text == String.Empty)
+            if(txtpalavra.Text == String.Empty || ComboIdioma.SelectedIndex < 1 || ComboGenero.SelectedIndex < 1)
             {
-                InformaDiag.Erro("Palavra não pode ser vazio!");
+                InformaDiag.Erro("Campos requeridos com valores inválidos!");
                 return;
             }
             string lng;
@@ -223,7 +223,7 @@ namespace dicionario
             if (p.id <= 0)
             {
                 List<Conjugacao> lconj = new List<Conjugacao>();
-                Conjugacao conjugacao = new Conjugacao { preterito = "", presente = "", futuro = "" };
+                Conjugacao conjugacao = new Conjugacao { ExPreterito = "", ExPresente = "", ExFuturo = "", ConstrPreterito = "", ConstrPresente = "", ConstrFuturo = "" };
                 crud.InsereLinha(tabelasBd.CONJUGACAO,Conjugacao.ToListTabela(), conjugacao.ToListValores());
                 lconj = Conjugacao.ConverteObject(crud.SelecionarTabela("conjugacao", Conjugacao.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2"));
                 p.id_conjuga = lconj.First().id;

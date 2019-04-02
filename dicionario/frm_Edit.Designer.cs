@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.txtpalavra = new System.Windows.Forms.TextBox();
             this.textCultura = new System.Windows.Forms.TextBox();
             this.txtGramatica = new System.Windows.Forms.TextBox();
@@ -39,7 +36,6 @@
             this.ComboGenero = new System.Windows.Forms.ComboBox();
             this.ComboIdioma = new System.Windows.Forms.ComboBox();
             this.ComboClasseGram = new System.Windows.Forms.ComboBox();
-            this.comboFiltroIdiomas = new System.Windows.Forms.ComboBox();
             this.label_palavra = new System.Windows.Forms.Label();
             this.label_cult = new System.Windows.Forms.Label();
             this.label_grammar = new System.Windows.Forms.Label();
@@ -60,244 +56,21 @@
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tip_Dicas = new System.Windows.Forms.ToolTip(this.components);
-            this.ComboFiltroPrecisao = new System.Windows.Forms.ComboBox();
             this.btnEquiv = new System.Windows.Forms.Button();
             this.btnConjuga = new System.Windows.Forms.Button();
             this.btnPrimeiro = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnProx = new System.Windows.Forms.Button();
             this.btnUltimo = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ComboFiltroPrecisao = new System.Windows.Forms.ComboBox();
+            this.comboFiltroIdiomas = new System.Windows.Forms.ComboBox();
+            this.filterComboBox = new System.Windows.Forms.ComboBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.menu_barra.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // searchBox
-            // 
-            this.searchBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "Country",
-            "Afghanistan",
-            "Albania",
-            "Algeria",
-            "Andorra",
-            "Angola",
-            "Antigua and Barbuda",
-            "Argentina",
-            "Armenia",
-            "Australia",
-            "Austria",
-            "Azerbaijan",
-            "Bahamas",
-            "Bahrain",
-            "Bangladesh",
-            "Barbados",
-            "Belarus",
-            "Belgium",
-            "Belize",
-            "Benin",
-            "Bhutan",
-            "Bolivia",
-            "Bosnia and Herzegovina",
-            "Botswana",
-            "Brazil",
-            "Brunei Darussalam",
-            "Bulgaria",
-            "Burkina Faso",
-            "Burundi",
-            "Cabo Verde",
-            "Cambodia",
-            "Cameroon",
-            "Canada",
-            "Central African Republic",
-            "Chad",
-            "Chile",
-            "China",
-            "Colombia",
-            "Comoros",
-            "Congo",
-            "Costa Rica",
-            "Côte d\'Ivoire",
-            "Croatia",
-            "Cuba",
-            "Cyprus",
-            "Czech Republic",
-            "Democratic People\'s Republic of Korea (North Korea)",
-            "Democratic Republic of the Cong",
-            "Denmark",
-            "Djibouti",
-            "Dominica",
-            "Dominican Republic",
-            "Ecuador",
-            "Egypt",
-            "El Salvador",
-            "Equatorial Guinea",
-            "Eritrea",
-            "Estonia",
-            "Ethiopia",
-            "Fiji",
-            "Finland",
-            "France",
-            "Gabon",
-            "Gambia",
-            "Georgia",
-            "Germany",
-            "Ghana",
-            "Greece",
-            "Grenada",
-            "Guatemala",
-            "Guinea",
-            "Guinea-Bissau",
-            "Guyana",
-            "Haiti",
-            "Honduras",
-            "Hungary",
-            "Iceland",
-            "India",
-            "Indonesia",
-            "Iran",
-            "Iraq",
-            "Ireland",
-            "Israel",
-            "Italy",
-            "Jamaica",
-            "Japan",
-            "Jordan",
-            "Kazakhstan",
-            "Kenya",
-            "Kiribati",
-            "Kuwait",
-            "Kyrgyzstan",
-            "Lao People\'s Democratic Republic (Laos)",
-            "Latvia",
-            "Lebanon",
-            "Lesotho",
-            "Liberia",
-            "Libya",
-            "Liechtenstein",
-            "Lithuania",
-            "Luxembourg",
-            "Macedonia",
-            "Madagascar",
-            "Malawi",
-            "Malaysia",
-            "Maldives",
-            "Mali",
-            "Malta",
-            "Marshall Islands",
-            "Mauritania",
-            "Mauritius",
-            "Mexico",
-            "Micronesia (Federated States of)",
-            "Monaco",
-            "Mongolia",
-            "Montenegro",
-            "Morocco",
-            "Mozambique",
-            "Myanmar",
-            "Namibia",
-            "Nauru",
-            "Nepal",
-            "Netherlands",
-            "New Zealand",
-            "Nicaragua",
-            "Niger",
-            "Nigeria",
-            "Norway",
-            "Oman",
-            "Pakistan",
-            "Palau",
-            "Panama",
-            "Papua New Guinea",
-            "Paraguay",
-            "Peru",
-            "Philippines",
-            "Poland",
-            "Portugal",
-            "Qatar",
-            "Republic of Korea (South Korea)",
-            "Republic of Moldova",
-            "Romania",
-            "Russian Federation",
-            "Rwanda",
-            "Saint Kitts and Nevis",
-            "Saint Lucia",
-            "Saint Vincent and the Grenadines",
-            "Samoa",
-            "San Marino",
-            "Sao Tome and Principe",
-            "Saudi Arabia",
-            "Senegal",
-            "Serbia",
-            "Seychelles",
-            "Sierra Leone",
-            "Singapore",
-            "Slovakia",
-            "Slovenia",
-            "Solomon Islands",
-            "Somalia",
-            "South Africa",
-            "South Sudan",
-            "Spain",
-            "Sri Lanka",
-            "Sudan",
-            "Suriname",
-            "Swaziland",
-            "Sweden",
-            "Switzerland",
-            "Syrian Arab Republic",
-            "Tajikistan",
-            "Thailand",
-            "Timor-Leste",
-            "Togo",
-            "Tonga",
-            "Trinidad and Tobago",
-            "Tunisia",
-            "Turkey",
-            "Turkmenistan",
-            "Tuvalu",
-            "Uganda",
-            "Ukraine",
-            "United Arab Emirates",
-            "United Kingdom of Great Britain and Northern Ireland",
-            "United Republic of Tanzania",
-            "United States of America",
-            "Uruguay",
-            "Uzbekistan",
-            "Vanuatu",
-            "Venezuela",
-            "Vietnam",
-            "Yemen",
-            "Zambia",
-            "Zimbabwe"});
-            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(45, 60);
-            this.searchBox.MaxLength = 45;
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(179, 26);
-            this.searchBox.TabIndex = 0;
-            this.searchBox.Text = "Buscar...";
-            // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(671, 56);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(110, 28);
-            this.searchButton.TabIndex = 14;
-            this.searchButton.Text = "Procurar";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // filterComboBox
-            // 
-            this.filterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filterComboBox.FormattingEnabled = true;
-            this.filterComboBox.Items.AddRange(new object[] {
-            "Lema",
-            "Código"});
-            this.filterComboBox.Location = new System.Drawing.Point(396, 58);
-            this.filterComboBox.Name = "filterComboBox";
-            this.filterComboBox.Size = new System.Drawing.Size(110, 28);
-            this.filterComboBox.TabIndex = 15;
-            this.filterComboBox.Text = "Filtro";
             // 
             // txtpalavra
             // 
@@ -1003,21 +776,6 @@
             this.ComboClasseGram.TabIndex = 4;
             this.tip_Dicas.SetToolTip(this.ComboClasseGram, "Determine a classe gramatical.\r\nDigite um texto para buscar registros existentes");
             // 
-            // comboFiltroIdiomas
-            // 
-            this.comboFiltroIdiomas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboFiltroIdiomas.FormattingEnabled = true;
-            this.comboFiltroIdiomas.Items.AddRange(new object[] {
-            "Qualquer",
-            "BR",
-            "EN",
-            "ES"});
-            this.comboFiltroIdiomas.Location = new System.Drawing.Point(251, 58);
-            this.comboFiltroIdiomas.Name = "comboFiltroIdiomas";
-            this.comboFiltroIdiomas.Size = new System.Drawing.Size(110, 28);
-            this.comboFiltroIdiomas.TabIndex = 25;
-            this.comboFiltroIdiomas.Text = "Idiomas";
-            // 
             // label_palavra
             // 
             this.label_palavra.AutoSize = true;
@@ -1192,19 +950,6 @@
             this.contatoToolStripMenuItem.Text = "Contato";
             this.contatoToolStripMenuItem.Click += new System.EventHandler(this.contatoToolStripMenuItem_Click);
             // 
-            // ComboFiltroPrecisao
-            // 
-            this.ComboFiltroPrecisao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboFiltroPrecisao.FormattingEnabled = true;
-            this.ComboFiltroPrecisao.Items.AddRange(new object[] {
-            "Exatamente",
-            "Contém"});
-            this.ComboFiltroPrecisao.Location = new System.Drawing.Point(530, 58);
-            this.ComboFiltroPrecisao.Name = "ComboFiltroPrecisao";
-            this.ComboFiltroPrecisao.Size = new System.Drawing.Size(121, 28);
-            this.ComboFiltroPrecisao.TabIndex = 50;
-            this.ComboFiltroPrecisao.Text = "Precisão";
-            // 
             // btnEquiv
             // 
             this.btnEquiv.Enabled = false;
@@ -1273,18 +1018,288 @@
             this.btnUltimo.UseVisualStyleBackColor = true;
             this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ComboFiltroPrecisao);
+            this.groupBox1.Controls.Add(this.comboFiltroIdiomas);
+            this.groupBox1.Controls.Add(this.filterComboBox);
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.searchBox);
+            this.groupBox1.Location = new System.Drawing.Point(45, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(766, 57);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtro";
+            // 
+            // ComboFiltroPrecisao
+            // 
+            this.ComboFiltroPrecisao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboFiltroPrecisao.FormattingEnabled = true;
+            this.ComboFiltroPrecisao.Items.AddRange(new object[] {
+            "Exatamente",
+            "Contém"});
+            this.ComboFiltroPrecisao.Location = new System.Drawing.Point(500, 15);
+            this.ComboFiltroPrecisao.Name = "ComboFiltroPrecisao";
+            this.ComboFiltroPrecisao.Size = new System.Drawing.Size(121, 28);
+            this.ComboFiltroPrecisao.TabIndex = 55;
+            this.ComboFiltroPrecisao.Text = "Precisão";
+            // 
+            // comboFiltroIdiomas
+            // 
+            this.comboFiltroIdiomas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboFiltroIdiomas.FormattingEnabled = true;
+            this.comboFiltroIdiomas.Items.AddRange(new object[] {
+            "Qualquer",
+            "BR",
+            "EN",
+            "ES"});
+            this.comboFiltroIdiomas.Location = new System.Drawing.Point(221, 15);
+            this.comboFiltroIdiomas.Name = "comboFiltroIdiomas";
+            this.comboFiltroIdiomas.Size = new System.Drawing.Size(110, 28);
+            this.comboFiltroIdiomas.TabIndex = 54;
+            this.comboFiltroIdiomas.Text = "Idiomas";
+            // 
+            // filterComboBox
+            // 
+            this.filterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterComboBox.FormattingEnabled = true;
+            this.filterComboBox.Items.AddRange(new object[] {
+            "Lema",
+            "Código"});
+            this.filterComboBox.Location = new System.Drawing.Point(366, 15);
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(110, 28);
+            this.filterComboBox.TabIndex = 53;
+            this.filterComboBox.Text = "Filtro";
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(641, 13);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(110, 28);
+            this.searchButton.TabIndex = 52;
+            this.searchButton.Text = "Procurar";
+            this.searchButton.UseVisualStyleBackColor = true;
+            // 
+            // searchBox
+            // 
+            this.searchBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "Country",
+            "Afghanistan",
+            "Albania",
+            "Algeria",
+            "Andorra",
+            "Angola",
+            "Antigua and Barbuda",
+            "Argentina",
+            "Armenia",
+            "Australia",
+            "Austria",
+            "Azerbaijan",
+            "Bahamas",
+            "Bahrain",
+            "Bangladesh",
+            "Barbados",
+            "Belarus",
+            "Belgium",
+            "Belize",
+            "Benin",
+            "Bhutan",
+            "Bolivia",
+            "Bosnia and Herzegovina",
+            "Botswana",
+            "Brazil",
+            "Brunei Darussalam",
+            "Bulgaria",
+            "Burkina Faso",
+            "Burundi",
+            "Cabo Verde",
+            "Cambodia",
+            "Cameroon",
+            "Canada",
+            "Central African Republic",
+            "Chad",
+            "Chile",
+            "China",
+            "Colombia",
+            "Comoros",
+            "Congo",
+            "Costa Rica",
+            "Côte d\'Ivoire",
+            "Croatia",
+            "Cuba",
+            "Cyprus",
+            "Czech Republic",
+            "Democratic People\'s Republic of Korea (North Korea)",
+            "Democratic Republic of the Cong",
+            "Denmark",
+            "Djibouti",
+            "Dominica",
+            "Dominican Republic",
+            "Ecuador",
+            "Egypt",
+            "El Salvador",
+            "Equatorial Guinea",
+            "Eritrea",
+            "Estonia",
+            "Ethiopia",
+            "Fiji",
+            "Finland",
+            "France",
+            "Gabon",
+            "Gambia",
+            "Georgia",
+            "Germany",
+            "Ghana",
+            "Greece",
+            "Grenada",
+            "Guatemala",
+            "Guinea",
+            "Guinea-Bissau",
+            "Guyana",
+            "Haiti",
+            "Honduras",
+            "Hungary",
+            "Iceland",
+            "India",
+            "Indonesia",
+            "Iran",
+            "Iraq",
+            "Ireland",
+            "Israel",
+            "Italy",
+            "Jamaica",
+            "Japan",
+            "Jordan",
+            "Kazakhstan",
+            "Kenya",
+            "Kiribati",
+            "Kuwait",
+            "Kyrgyzstan",
+            "Lao People\'s Democratic Republic (Laos)",
+            "Latvia",
+            "Lebanon",
+            "Lesotho",
+            "Liberia",
+            "Libya",
+            "Liechtenstein",
+            "Lithuania",
+            "Luxembourg",
+            "Macedonia",
+            "Madagascar",
+            "Malawi",
+            "Malaysia",
+            "Maldives",
+            "Mali",
+            "Malta",
+            "Marshall Islands",
+            "Mauritania",
+            "Mauritius",
+            "Mexico",
+            "Micronesia (Federated States of)",
+            "Monaco",
+            "Mongolia",
+            "Montenegro",
+            "Morocco",
+            "Mozambique",
+            "Myanmar",
+            "Namibia",
+            "Nauru",
+            "Nepal",
+            "Netherlands",
+            "New Zealand",
+            "Nicaragua",
+            "Niger",
+            "Nigeria",
+            "Norway",
+            "Oman",
+            "Pakistan",
+            "Palau",
+            "Panama",
+            "Papua New Guinea",
+            "Paraguay",
+            "Peru",
+            "Philippines",
+            "Poland",
+            "Portugal",
+            "Qatar",
+            "Republic of Korea (South Korea)",
+            "Republic of Moldova",
+            "Romania",
+            "Russian Federation",
+            "Rwanda",
+            "Saint Kitts and Nevis",
+            "Saint Lucia",
+            "Saint Vincent and the Grenadines",
+            "Samoa",
+            "San Marino",
+            "Sao Tome and Principe",
+            "Saudi Arabia",
+            "Senegal",
+            "Serbia",
+            "Seychelles",
+            "Sierra Leone",
+            "Singapore",
+            "Slovakia",
+            "Slovenia",
+            "Solomon Islands",
+            "Somalia",
+            "South Africa",
+            "South Sudan",
+            "Spain",
+            "Sri Lanka",
+            "Sudan",
+            "Suriname",
+            "Swaziland",
+            "Sweden",
+            "Switzerland",
+            "Syrian Arab Republic",
+            "Tajikistan",
+            "Thailand",
+            "Timor-Leste",
+            "Togo",
+            "Tonga",
+            "Trinidad and Tobago",
+            "Tunisia",
+            "Turkey",
+            "Turkmenistan",
+            "Tuvalu",
+            "Uganda",
+            "Ukraine",
+            "United Arab Emirates",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "United Republic of Tanzania",
+            "United States of America",
+            "Uruguay",
+            "Uzbekistan",
+            "Vanuatu",
+            "Venezuela",
+            "Vietnam",
+            "Yemen",
+            "Zambia",
+            "Zimbabwe"});
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(15, 17);
+            this.searchBox.MaxLength = 45;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(179, 26);
+            this.searchBox.TabIndex = 51;
+            this.searchBox.Text = "Buscar...";
+            // 
             // frm_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 542);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnProx);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnPrimeiro);
             this.Controls.Add(this.btnConjuga);
             this.Controls.Add(this.btnEquiv);
-            this.Controls.Add(this.ComboFiltroPrecisao);
             this.Controls.Add(this.menu_barra);
             this.Controls.Add(this.btnApaga);
             this.Controls.Add(this.btnSalva);
@@ -1296,7 +1311,6 @@
             this.Controls.Add(this.label_grammar);
             this.Controls.Add(this.label_cult);
             this.Controls.Add(this.label_palavra);
-            this.Controls.Add(this.comboFiltroIdiomas);
             this.Controls.Add(this.ComboClasseGram);
             this.Controls.Add(this.ComboIdioma);
             this.Controls.Add(this.ComboGenero);
@@ -1304,9 +1318,6 @@
             this.Controls.Add(this.txtGramatica);
             this.Controls.Add(this.textCultura);
             this.Controls.Add(this.txtpalavra);
-            this.Controls.Add(this.filterComboBox);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchBox);
             this.MainMenuStrip = this.menu_barra;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1024, 580);
@@ -1315,15 +1326,14 @@
             this.Load += new System.EventHandler(this.EditForm_Load);
             this.menu_barra.ResumeLayout(false);
             this.menu_barra.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ComboBox filterComboBox;
         private System.Windows.Forms.TextBox txtpalavra;
         private System.Windows.Forms.TextBox textCultura;
         private System.Windows.Forms.TextBox txtGramatica;
@@ -1331,7 +1341,6 @@
         private System.Windows.Forms.ComboBox ComboGenero;
         private System.Windows.Forms.ComboBox ComboIdioma;
         private System.Windows.Forms.ComboBox ComboClasseGram;
-        private System.Windows.Forms.ComboBox comboFiltroIdiomas;
         private System.Windows.Forms.Label label_palavra;
         private System.Windows.Forms.Label label_cult;
         private System.Windows.Forms.Label label_grammar;
@@ -1352,12 +1361,17 @@
         private System.Windows.Forms.ToolTip tip_Dicas;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
-        private System.Windows.Forms.ComboBox ComboFiltroPrecisao;
         private System.Windows.Forms.Button btnEquiv;
         private System.Windows.Forms.Button btnConjuga;
         private System.Windows.Forms.Button btnPrimeiro;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnProx;
         private System.Windows.Forms.Button btnUltimo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox ComboFiltroPrecisao;
+        private System.Windows.Forms.ComboBox comboFiltroIdiomas;
+        private System.Windows.Forms.ComboBox filterComboBox;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }
