@@ -68,18 +68,12 @@ namespace dicionario
                         v = Palavra.ToListTabela().Count;
                         ptlt = Palavra.ToListTabela();
                         break;
-                    case "Rubrica":
-                        v = Rubrica.ToListTabela().Count;
-                        ptlt = Rubrica.ToListTabela();
-                        break;
                     case "Referência":
                         v = Referencia.ToListTabela().Count;
                         ptlt = Referencia.ToListTabela();
                         break;
                     default:
-                        throw new Exception("Não implementado");
-                        break;
-                        
+                        throw new Exception("Não implementado");                       
                 }
                 try
                 {
@@ -269,21 +263,10 @@ namespace dicionario
                     return null;
                 }
 
-                List<Rubrica> lrub = new List<Rubrica>();
                 List<Referencia> lref = new List<Referencia>();
                 IEnumerator<string> ff = FKs.GetEnumerator();
                 c = 0;
                 if (fila[c++]){
-                    saida = ff.Current;
-                    lrub = Rubrica.ConverteObject(operacoes.SelecionarTabela(tabelasBd.RUBRICA, Rubrica.ToListTabela(true), "sigla='"+ saida + "'"));
-                    if (lrub.Count() > 0)
-                    {
-                       // teste.rubrica = lrub.First().id;
-                    }
-                    else
-                    {
-                        return null;
-                    }
                     ff.MoveNext();
                 }
                 if (fila[c]){

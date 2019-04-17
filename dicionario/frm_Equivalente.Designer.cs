@@ -46,14 +46,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtExemplo = new System.Windows.Forms.TextBox();
             this.txtExemploTraduzido = new System.Windows.Forms.TextBox();
-            this.ComboRubrica = new System.Windows.Forms.ComboBox();
             this.comboRef = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.timerRub = new System.Windows.Forms.Timer(this.components);
             this.timerRef = new System.Windows.Forms.Timer(this.components);
             this.txtApresentacao = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtGuia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtApresentacao)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,18 +231,6 @@
             this.txtExemploTraduzido.Size = new System.Drawing.Size(701, 23);
             this.txtExemploTraduzido.TabIndex = 20;
             // 
-            // ComboRubrica
-            // 
-            this.ComboRubrica.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.ComboRubrica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboRubrica.FormattingEnabled = true;
-            this.ComboRubrica.Location = new System.Drawing.Point(15, 243);
-            this.ComboRubrica.Name = "ComboRubrica";
-            this.ComboRubrica.Size = new System.Drawing.Size(301, 24);
-            this.ComboRubrica.TabIndex = 21;
-            this.ComboRubrica.SelectedIndexChanged += new System.EventHandler(this.ComboRubrica_SelectedIndexChanged);
-            this.ComboRubrica.TextUpdate += new System.EventHandler(this.ComboRubrica_TextUpdate);
-            // 
             // comboRef
             // 
             this.comboRef.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -262,9 +249,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 223);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
+            this.label5.Size = new System.Drawing.Size(90, 17);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Rubrica";
+            this.label5.Text = "Palavra Guia";
             // 
             // label6
             // 
@@ -275,11 +262,6 @@
             this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 24;
             this.label6.Text = "Referência";
-            // 
-            // timerRub
-            // 
-            this.timerRub.Interval = 700;
-            this.timerRub.Tick += new System.EventHandler(this.timerRub_Tick);
             // 
             // timerRef
             // 
@@ -314,17 +296,25 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "Pos. Apresentação";
             // 
+            // txtGuia
+            // 
+            this.txtGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuia.Location = new System.Drawing.Point(12, 243);
+            this.txtGuia.Name = "txtGuia";
+            this.txtGuia.Size = new System.Drawing.Size(381, 23);
+            this.txtGuia.TabIndex = 27;
+            // 
             // frm_Equivalente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 292);
+            this.Controls.Add(this.txtGuia);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtApresentacao);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboRef);
-            this.Controls.Add(this.ComboRubrica);
             this.Controls.Add(this.txtExemploTraduzido);
             this.Controls.Add(this.txtExemplo);
             this.Controls.Add(this.label4);
@@ -373,13 +363,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtExemplo;
         private System.Windows.Forms.TextBox txtExemploTraduzido;
-        private System.Windows.Forms.ComboBox ComboRubrica;
         private System.Windows.Forms.ComboBox comboRef;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Timer timerRub;
         private System.Windows.Forms.Timer timerRef;
         private System.Windows.Forms.NumericUpDown txtApresentacao;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtGuia;
     }
 }

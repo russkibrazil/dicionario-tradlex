@@ -16,7 +16,8 @@ namespace dicionario.Model
         public const string RUBRICA = "rubrica";
         public const string REFERENCIAS = "referencias";
         public const string USUARIOS = "usr";
-        public const string CONJUGACAO = "conjugacao";
+        public const string CONJUGACAOPT = "conjugacao_pt";
+        public const string CONJUGACAOEN = "conjugacao_en";
         public const string EQUIVALENTE = "equivalencias";
     }
     internal class ConectaBanco
@@ -90,8 +91,8 @@ namespace dicionario.Model
         }
     }
     class CRUD{
-        private ConectaBanco ControllerBanco = new ConectaBanco("tradlexdbase","tradlexdbase","Int3rl3x1c0gr@", "tradlexdbase.mysql.dbaas.com.br");
-        //private ConectaBanco ControllerBanco = new ConectaBanco();
+        //private ConectaBanco ControllerBanco = new ConectaBanco("tradlexdbase","tradlexdbase","Int3rl3x1c0gr@", "tradlexdbase.mysql.dbaas.com.br");
+        private ConectaBanco ControllerBanco = new ConectaBanco();
         private void EnviaComando(string query){
             if (ControllerBanco.AbreConexao() == true)
             {
@@ -207,9 +208,6 @@ namespace dicionario.Model
             {
                 case "palavra":
                     t = Palavra.ToListTabela();
-                    break;
-                case "rubrica":
-                    t = Rubrica.ToListTabela();
                     break;
                 case "referencias":
                     t = Referencia.ToListTabela();

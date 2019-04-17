@@ -48,7 +48,6 @@
             this.btnApaga = new System.Windows.Forms.Button();
             this.menu_barra = new System.Windows.Forms.MenuStrip();
             this.acessoRápidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rubricaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -707,7 +706,8 @@
             this.ComboGenero.AutoCompleteCustomSource.AddRange(new string[] {
             "Masculino",
             "Feminino",
-            "Neutro"});
+            "Neutro",
+            "Sem Gênero"});
             this.ComboGenero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboGenero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -715,7 +715,8 @@
             this.ComboGenero.Items.AddRange(new object[] {
             "Masculino",
             "Feminino",
-            "Neutro"});
+            "Neutro",
+            "Sem Gênero"});
             this.ComboGenero.Location = new System.Drawing.Point(652, 152);
             this.ComboGenero.Name = "ComboGenero";
             this.ComboGenero.Size = new System.Drawing.Size(159, 28);
@@ -894,7 +895,6 @@
             // acessoRápidoToolStripMenuItem
             // 
             this.acessoRápidoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rubricaToolStripMenuItem,
             this.referênciasToolStripMenuItem,
             this.toolStripSeparator1,
             this.importarToolStripMenuItem});
@@ -902,29 +902,22 @@
             this.acessoRápidoToolStripMenuItem.Size = new System.Drawing.Size(123, 25);
             this.acessoRápidoToolStripMenuItem.Text = "Acesso Rápido";
             // 
-            // rubricaToolStripMenuItem
-            // 
-            this.rubricaToolStripMenuItem.Name = "rubricaToolStripMenuItem";
-            this.rubricaToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.rubricaToolStripMenuItem.Text = "Rubrica";
-            this.rubricaToolStripMenuItem.Click += new System.EventHandler(this.rubricaToolStripMenuItem_Click);
-            // 
             // referênciasToolStripMenuItem
             // 
             this.referênciasToolStripMenuItem.Name = "referênciasToolStripMenuItem";
-            this.referênciasToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.referênciasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.referênciasToolStripMenuItem.Text = "Referências";
             this.referênciasToolStripMenuItem.Click += new System.EventHandler(this.referênciasToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // importarToolStripMenuItem
             // 
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.importarToolStripMenuItem.Text = "Importar...";
             this.importarToolStripMenuItem.Click += new System.EventHandler(this.importarToolStripMenuItem_Click);
             // 
@@ -1082,6 +1075,7 @@
             this.searchButton.TabIndex = 52;
             this.searchButton.Text = "Procurar";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchBox
             // 
@@ -1353,7 +1347,6 @@
         private System.Windows.Forms.Button btnApaga;
         private System.Windows.Forms.MenuStrip menu_barra;
         private System.Windows.Forms.ToolStripMenuItem acessoRápidoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rubricaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem referênciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;

@@ -20,16 +20,15 @@ namespace dicionario
         }
         private CRUD crud = new CRUD();
         private Palavra p = new Palavra();
-        private Rubrica rb = new Rubrica();
         private Referencia refere = new Referencia();
         private List<object[]> resultados;
         private List<Palavra> resPalavra = new List<Palavra>();
         private int ipal = 0;
-        private List<Rubrica> resRubrica = new List<Rubrica>();
         private List<Referencia> resRef = new List<Referencia>();
 
         private void EditForm_Load(object sender, EventArgs e)
         {
+            //ComboGenero.
         }
         private void LimpaCampos()
         {
@@ -51,7 +50,7 @@ namespace dicionario
             p.id = -1;
             p.lema = "";
             p.ClasseGram = "";
-            p.Genero = "N";
+            p.Genero = "S";
         }
         private void MostraDados()
         {
@@ -61,10 +60,10 @@ namespace dicionario
             else
             {
                 if (p.idioma == "ES")
-                    ComboIdioma.SelectedIndex = 2;
+                    ComboIdioma.SelectedIndex = 1;
                 else
                 {
-                    ComboIdioma.SelectedIndex = 1;
+                    ComboIdioma.SelectedIndex = 2;
                 }
             }
             textCultura.Text = p.nota_cultura;
@@ -80,6 +79,7 @@ namespace dicionario
                     ComboGenero.SelectedIndex = 1;
                     break;
                 default:
+                    ComboGenero.SelectedIndex = 3;
                     break;
             }
             ComboClasseGram.Text = p.ClasseGram;
@@ -180,9 +180,24 @@ namespace dicionario
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            if(txtpalavra.Text == String.Empty || ComboIdioma.SelectedIndex < 1 || ComboGenero.SelectedIndex < 1)
+            if(txtpalavra.Text == String.Empty)
             {
-                InformaDiag.Erro("Campos requeridos com valores inválidos!");
+                InformaDiag.Erro("Palavra não pode ser vazio!");
+                return;
+            }
+            if (ComboClasseGram.SelectedItem == null)
+            {
+                InformaDiag.Erro("Selecione um valor válido de Classe gramatical!");
+                return;
+            }
+            if (ComboGenero.SelectedItem == null)
+            {
+                InformaDiag.Erro("Selecione um gênero válido!");
+                return;
+            }
+            if (ComboIdioma.SelectedItem == null)
+            {
+                InformaDiag.Erro("É obrigatório selecionar um idioma!");
                 return;
             }
             string lng;
@@ -215,18 +230,26 @@ namespace dicionario
                 case 1:
                     p.Genero = "F";
                     break;
-                default:
+                case 2:
                     p.Genero = "N";
+                    break;
+                default:
+                    p.Genero = "S";
                     break;
             }
             p.ClasseGram = ComboClasseGram.Text;
             if (p.id <= 0)
             {
-                List<Conjugacao> lconj = new List<Conjugacao>();
-                Conjugacao conjugacao = new Conjugacao { ExPreterito = "", ExPresente = "", ExFuturo = "", ConstrPreterito = "", ConstrPresente = "", ConstrFuturo = "" };
-                crud.InsereLinha(tabelasBd.CONJUGACAO,Conjugacao.ToListTabela(), conjugacao.ToListValores());
-                lconj = Conjugacao.ConverteObject(crud.SelecionarTabela("conjugacao", Conjugacao.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2"));
-                p.id_conjuga = lconj.First().id;
+                if (p.idioma == "PT")
+                {
+                    crud.InsereLinha(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), new ConjugacaoPt().ToListValores());
+                    p.id_conjuga = ConjugacaoPt.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                }
+                else
+                {
+                    crud.InsereLinha(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), new ConjugacaoEn().ToListValores());
+                    p.id_conjuga = ConjugacaoEn.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                }
                 crud.InsereLinha(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores());
             }
             else
@@ -266,18 +289,6 @@ namespace dicionario
             ICsv.Show();
         }
 
-        private void rubricaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_rubrica _Rubrica = new frm_rubrica();
-            _Rubrica.ShowDialog();
-        }
-
-        private void categoriaGramaticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_categoriaGramatical ctGram = new frm_categoriaGramatical();
-            ctGram.ShowDialog();
-        }
-
         private void contatoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_contato cont = new frm_contato();
@@ -300,7 +311,7 @@ namespace dicionario
         {
             if (p.id_conjuga > 0)
             {
-                frm_conjuga fc = new frm_conjuga(p.id_conjuga);
+                frm_conjuga fc = new frm_conjuga(p.id_conjuga, p.idioma);
                 fc.ShowDialog();
             }
             else

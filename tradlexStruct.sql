@@ -18,7 +18,7 @@
 --
 -- Table structure for table `categoriagram`
 --
-
+USE tradlexbase;
 DROP TABLE IF EXISTS `categoriagram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -49,7 +49,7 @@ CREATE TABLE `conjugacao` (
   `ConstrFuturo` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`idconjugacao`),
   UNIQUE KEY `idconjugacao_UNIQUE` (`idconjugacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `palavra` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Id_UNIQUE` (`Id`),
   UNIQUE KEY `IDX_EntradaUnica` (`Lema`,`Idioma`,`ClasseGram`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

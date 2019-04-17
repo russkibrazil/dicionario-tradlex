@@ -25,7 +25,7 @@
     <TargetCulture>pt-BR</TargetCulture>
     <ProductName>Dicionario</ProductName>
     <PublisherName>Estudos da língua Interlex</PublisherName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>2.2.5.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -106,18 +106,13 @@
     </Compile>
     <Compile Include="Helpers\HelperBd.cs" />
     <Compile Include="Helpers\InformaDiag.cs" />
-    <Compile Include="Model\Conjugacao.cs" />
+    <Compile Include="Model\ConjugacaoEn.cs" />
+    <Compile Include="Model\ConjugacaoPt.cs" />
     <Compile Include="frm_conjuga.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_conjuga.Designer.cs">
       <DependentUpon>frm_conjuga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_categoriaGramatical.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_categoriaGramatical.Designer.cs">
-      <DependentUpon>frm_categoriaGramatical.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_controledeusuario.cs">
       <SubType>Form</SubType>
@@ -167,19 +162,11 @@
     <Compile Include="ImportaCsv.designer.cs">
       <DependentUpon>ImportaCsv.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\CategoriaGramatical.cs" />
     <Compile Include="Model\ConectaBanco.cs" />
-    <Compile Include="frm_rubrica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_rubrica.Designer.cs">
-      <DependentUpon>frm_rubrica.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Model\Equivalente.cs" />
     <Compile Include="Model\Itabelas.cs" />
     <Compile Include="Model\Palavra.cs" />
-    <Compile Include="Model\Rubrica.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,9 +179,6 @@
     <Compile Include="Model\Referencia.cs" />
     <EmbeddedResource Include="frm_conjuga.resx">
       <DependentUpon>frm_conjuga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_categoriaGramatical.resx">
-      <DependentUpon>frm_categoriaGramatical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_controledeusuario.resx">
       <DependentUpon>frm_controledeusuario.cs</DependentUpon>
@@ -219,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_referencia.resx">
       <DependentUpon>frm_referencia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_rubrica.resx">
-      <DependentUpon>frm_rubrica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_visualizaverbete.resx">
       <DependentUpon>frm_visualizaverbete.cs</DependentUpon>

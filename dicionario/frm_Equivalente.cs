@@ -18,7 +18,6 @@ namespace dicionario
         private List<Equivalente> equivO = new List<Equivalente>();
         private List<Equivalente> equivD = new List<Equivalente>();
         private List<Palavra> resP = new List<Palavra>();
-        private List<Rubrica> resRubrica = new List<Rubrica>();
         private List<Referencia> resRef = new List<Referencia>();
         private readonly Palavra registroPai;
         private Equivalente oldEqAt;
@@ -50,14 +49,11 @@ namespace dicionario
             txtApresentacao.Value = ativo.nOrdem;
             txtExemplo.Text = ativo.exemplo;
             txtExemploTraduzido.Text = ativo.exemplo_traduzido;
+            txtGuia.Text = ativo.PalavraGuia;
 
             resRef = Referencia.ConverteObject(crud.SelecionarTabela(tabelasBd.REFERENCIAS, Referencia.ToListTabela(true), "Id=" + ativo.Referencia.ToString()));
             if (resRef.Count > 0)
                 comboRef.Text = resRef.First().descricao;
-
-            resRubrica = Rubrica.ConverteObject(crud.SelecionarTabela(tabelasBd.RUBRICA, Rubrica.ToListTabela(true), "Id="+ativo.Rubrica.ToString()));
-            if (resRubrica.Count > 0)
-                ComboRubrica.Text = resRubrica.First().descricao;
             oldEqAt = ativo;
         }
 
@@ -70,11 +66,10 @@ namespace dicionario
             comboDestino.Items.Clear();
             comboRef.Items.Clear();
             comboRef.Text = "";
-            ComboRubrica.Items.Clear();
-            ComboRubrica.Text = "";
             txtApresentacao.Value = 1;
             txtExemploTraduzido.Text = "";
             txtExemplo.Text = "";
+            txtGuia.Text = "";
             ativo.Invalidarequivalente();
         }
 
@@ -191,6 +186,7 @@ namespace dicionario
             ativo.exemplo = txtExemplo.Text;
             ativo.exemplo_traduzido = txtExemploTraduzido.Text;
             ativo.DefinirOrdemApresentação((int)txtApresentacao.Value);
+            ativo.PalavraGuia = txtGuia.Text;
             //ativo.heterogenerico = chkHgenerico.Checked;
             //ativo.heterotonico = chkHtonico.Checked;
             //ativo.heterossemantico = chkHsemantico.Checked;
@@ -271,41 +267,6 @@ namespace dicionario
                 ativo.Setequivalente(resP.ElementAt(comboDestino.SelectedIndex).id);
             }
         }
-
-        private void timerRub_Tick(object sender, EventArgs e)
-        {
-            string pesquisa;
-            pesquisa = ComboRubrica.Text;
-            if (ComboRubrica.Items.Count > 0)
-            {
-                ComboRubrica.Items.Clear();
-            }
-            if (pesquisa.Length <= 3)
-            {
-                resRubrica = Rubrica.ConverteObject(crud.SelecionarTabela(tabelasBd.RUBRICA, Rubrica.ToListTabela(true), "sigla LIKE '%" + pesquisa + "%'", "LIMIT 10"));
-            }
-            else
-                resRubrica = Rubrica.ConverteObject(crud.SelecionarTabela(tabelasBd.RUBRICA, Rubrica.ToListTabela(true), "descricao LIKE '%" + pesquisa + "%'", "LIMIT 10"));
-            foreach (Rubrica r in resRubrica)
-            {
-                ComboRubrica.Items.Add(r.descricao);
-            }
-            timerRub.Enabled = false; //prevenindo de floodar a combo
-        }
-
-        private void ComboRubrica_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ComboRubrica.Text != "")
-            {
-                ativo.Rubrica = resRubrica.Find(rubrica => rubrica.descricao == ComboRubrica.Text).id;
-            }
-        }
-
-        private void ComboRubrica_TextUpdate(object sender, EventArgs e)
-        {
-            if (timerRub.Enabled == true) { timerRub.Enabled = false; timerRub.Enabled = true; } else timerRub.Enabled = true;
-        }
-
         private void timerRef_Tick(object sender, EventArgs e)
         {
             string pesquisa;
