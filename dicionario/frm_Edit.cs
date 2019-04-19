@@ -240,23 +240,42 @@ namespace dicionario
             p.ClasseGram = ComboClasseGram.Text;
             if (p.id <= 0)
             {
-                if (p.idioma == "PT")
+                if (crud.InsereLinha(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores()) > 0)
                 {
-                    crud.InsereLinha(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), new ConjugacaoPt().ToListValores());
-                    p.id_conjuga = ConjugacaoPt.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                    p = Palavra.ConverteObject(crud.SelecionarTabela(tabelasBd.PALAVRA, Palavra.ToListTabela(true), "lema='" + p.lema + "' AND ClasseGram='" + p.ClasseGram + "' AND idioma='" + p.idioma + "' AND Genero='" + p.Genero + "'")).First();
+                    ///É PRECISO QUE SE IDENTIFIQUE QUAL É O ID RECÉM SALVO, RECUPERAR E ENTÃO ATUALIZA-LO COM A INFORMAÇÃO DO REGISTRO DA CONJUGAÇÃO CORRESPONDENTE
+                    if (p.idioma == "PT")
+                    {
+                        crud.InsereLinha(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), new ConjugacaoPt().ToListValores());
+                        p.id_conjuga = ConjugacaoPt.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                    }
+                    else
+                    {
+                        crud.InsereLinha(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), new ConjugacaoEn().ToListValores());
+                        p.id_conjuga = ConjugacaoEn.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                    }
+                    crud.UpdateLine(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores(), "id=" + p.id.ToString());
+                    InformaDiag.Informa("Salvo!");
+                    LimpaCampos();
                 }
                 else
                 {
-                    crud.InsereLinha(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), new ConjugacaoEn().ToListValores());
-                    p.id_conjuga = ConjugacaoEn.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
+                    ///CASO HOUVER UMA DUPLICATA, ENTÃO O REGISTRO EXISTENTE NO BANCO DEVE SER CARREGADO NO LUGAR DAS INFORMAÇÕES QUE O USUÁRIO PREENCHEU
+                    InformaDiag.Erro("Não foi possível salvar.\nO item caracterizado já existe.");
+                    if(InformaDiag.ConfirmaSN("Deseja carregar o registro existente?") == DialogResult.Yes)
+                    {
+                        p = Palavra.ConverteObject(crud.SelecionarTabela(tabelasBd.PALAVRA, Palavra.ToListTabela(true), "lema='" + p.lema + "' AND ClasseGram='"+ p.ClasseGram + "' AND idioma='" + p.idioma + "' AND Genero='" + p.Genero + "'")).First();
+                        MostraDados();
+                    }
                 }
-                crud.InsereLinha(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores());
             }
             else
+            {
                 crud.UpdateLine(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores(), "id=" + p.id.ToString());
+                InformaDiag.Informa("Salvo!");
+                LimpaCampos();
+            }
             //Uma excessão pode ser lançda aqui quando os valores das chaves estrangerias forem <1, pois estão refernciando um valor que não existe. Como o int no c# não cabe um NULL, seria melhor não enviar o tal valor que evitamos o problema
-            InformaDiag.Informa("Salvo!");
-            LimpaCampos();
         }
 
         private void btnApaga_Click(object sender, EventArgs e)

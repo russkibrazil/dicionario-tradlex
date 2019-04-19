@@ -93,15 +93,24 @@ namespace dicionario.Model
     class CRUD{
         //private ConectaBanco ControllerBanco = new ConectaBanco("tradlexdbase","tradlexdbase","Int3rl3x1c0gr@", "tradlexdbase.mysql.dbaas.com.br");
         private ConectaBanco ControllerBanco = new ConectaBanco();
-        private void EnviaComando(string query){
+        private int EnviaComando(string query){
+            int impacto = 0;
             if (ControllerBanco.AbreConexao() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, ControllerBanco.PegaConexao());
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    impacto = cmd.ExecuteNonQuery();
+                }
+                catch(MySqlException mErr)
+                {
+                    if (mErr.Message.Contains("Duplicate Entry")) impacto = 0;
+                }
                 ControllerBanco.FechaConexao();
             }
+            return impacto;
         }
-        public void InsereLinha(string tabela, List<string> campos, List<string> valores)
+        public int InsereLinha(string tabela, List<string> campos, List<string> valores)
         {
             string s; 
             string query = "INSERT INTO " + tabela + " (";
@@ -131,9 +140,9 @@ namespace dicionario.Model
             }
             query = query.Remove(query.Length - 1);
             query += ")";
-            EnviaComando(query);
+            return EnviaComando(query);
         }
-        public void UpdateLine(string tabela, List<string> campos, List<string> valores, string filtro)
+        public int UpdateLine(string tabela, List<string> campos, List<string> valores, string filtro)
         {
             string query = "UPDATE " + tabela + " SET ";
             string temp1, temp2, s;
@@ -162,12 +171,12 @@ namespace dicionario.Model
             }
             if (filtro != "")
                 query += " WHERE " + filtro;
-            EnviaComando(query);
+            return EnviaComando(query);
         }
-        public void ApagaLinha(string tabela, string filtro)
+        public int ApagaLinha(string tabela, string filtro)
         {
             string query = "DELETE FROM " + tabela + " WHERE " + filtro;
-            EnviaComando(query);
+            return (EnviaComando(query));
         }
         public List<object[]> SelecionarTabela(string tabela, List<string> campos, string filtro = "", string outrosParam = "")
         {

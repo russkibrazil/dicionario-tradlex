@@ -18,7 +18,7 @@
 --
 -- Table structure for table `categoriagram`
 --
-USE tradlexbase;
+
 DROP TABLE IF EXISTS `categoriagram`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -33,20 +33,60 @@ CREATE TABLE `categoriagram` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `conjugacao`
+-- Table structure for table `conjugacao_en`
 --
 
-DROP TABLE IF EXISTS `conjugacao`;
+DROP TABLE IF EXISTS `conjugacao_en`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `conjugacao` (
+CREATE TABLE `conjugacao_en` (
   `idconjugacao` int(11) NOT NULL AUTO_INCREMENT,
-  `ExPreterito` text COLLATE utf8_unicode_ci,
-  `ExPresente` text COLLATE utf8_unicode_ci,
-  `ExFuturo` text COLLATE utf8_unicode_ci,
-  `ConstrPreterito` text COLLATE utf8_unicode_ci,
   `ConstrPresente` text COLLATE utf8_unicode_ci,
-  `ConstrFuturo` text COLLATE utf8_unicode_ci,
+  `ExPresente` text COLLATE utf8_unicode_ci,
+  `ConstrPassado` text COLLATE utf8_unicode_ci,
+  `ExPassado` text COLLATE utf8_unicode_ci,
+  `ConstrWill` text COLLATE utf8_unicode_ci,
+  `ExWill` text COLLATE utf8_unicode_ci,
+  `ConstrGoingTo` text COLLATE utf8_unicode_ci,
+  `ExGoingTo` text COLLATE utf8_unicode_ci,
+  `ConstrPresPer` text COLLATE utf8_unicode_ci,
+  `ExPresPer` text COLLATE utf8_unicode_ci,
+  `ConstrPasPer` text COLLATE utf8_unicode_ci,
+  `ExPasPer` text COLLATE utf8_unicode_ci,
+  `ConstrPresCon` text COLLATE utf8_unicode_ci,
+  `ExPresCon` text COLLATE utf8_unicode_ci,
+  `ConstrPasCon` text COLLATE utf8_unicode_ci,
+  `ExPasCon` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`idconjugacao`),
+  UNIQUE KEY `idconjugacao_UNIQUE` (`idconjugacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `conjugacao_pt`
+--
+
+DROP TABLE IF EXISTS `conjugacao_pt`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conjugacao_pt` (
+  `idconjugacao` int(11) NOT NULL AUTO_INCREMENT,
+  `ConstrPresente` text COLLATE utf8_unicode_ci,
+  `ExPresente` text COLLATE utf8_unicode_ci,
+  `ConstrPretImp` text COLLATE utf8_unicode_ci,
+  `ExPretImp` text COLLATE utf8_unicode_ci,
+  `ConstrPretPer` text COLLATE utf8_unicode_ci,
+  `ExPretPer` text COLLATE utf8_unicode_ci,
+  `ConstrFutPres` text COLLATE utf8_unicode_ci,
+  `ExFutPres` text COLLATE utf8_unicode_ci,
+  `ConstrFutPret` text COLLATE utf8_unicode_ci,
+  `ExFutPret` text COLLATE utf8_unicode_ci,
+  `ConstrInfPessoal` text COLLATE utf8_unicode_ci,
+  `ExInfPessoal` text COLLATE utf8_unicode_ci,
+  `ConstrParticipio` text COLLATE utf8_unicode_ci,
+  `ExParticipio` text COLLATE utf8_unicode_ci,
+  `ConstrGerundio` text COLLATE utf8_unicode_ci,
+  `ExGerundio` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`idconjugacao`),
   UNIQUE KEY `idconjugacao_UNIQUE` (`idconjugacao`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -68,7 +108,7 @@ CREATE TABLE `equivalencias` (
   `Exemplo` tinytext,
   `Exemplo_Traduzido` tinytext,
   `Referencia` int(11) DEFAULT NULL,
-  `Rubrica` int(11) DEFAULT NULL,
+  `PGuia` varchar(100) DEFAULT NULL,
   `nApresentacao` int(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`Origem`,`equivalente`,`nApresentacao`),
   KEY `fk_Equivalencias_2_idx` (`equivalente`)
@@ -90,9 +130,9 @@ CREATE TABLE `palavra` (
   `notas_gramatica` tinytext COLLATE utf8_unicode_ci,
   `notas_cultura` text COLLATE utf8_unicode_ci,
   `Id_conjuga` int(11) DEFAULT NULL,
-  `Genero` enum('M','F','N') COLLATE utf8_unicode_ci DEFAULT 'N',
+  `Genero` enum('M','F','N','S') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'S',
   `Definicao` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`Id`),
+  PRIMARY KEY (`Lema`,`ClasseGram`,`Idioma`,`Genero`),
   UNIQUE KEY `Id_UNIQUE` (`Id`),
   UNIQUE KEY `IDX_EntradaUnica` (`Lema`,`Idioma`,`ClasseGram`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -162,4 +202,4 @@ CREATE TABLE `usr` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-02 14:25:46
+-- Dump completed on 2019-04-19 20:21:29
