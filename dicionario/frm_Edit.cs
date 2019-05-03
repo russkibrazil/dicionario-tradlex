@@ -257,6 +257,7 @@ namespace dicionario
                     crud.UpdateLine(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores(), "id=" + p.id.ToString());
                     InformaDiag.Informa("Salvo!");
                     LimpaCampos();
+                    LimpaModel();
                 }
                 else
                 {
