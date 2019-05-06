@@ -91,8 +91,8 @@ namespace dicionario.Model
         }
     }
     class CRUD{
-        //private ConectaBanco ControllerBanco = new ConectaBanco("tradlexdbase","tradlexdbase","Int3rl3x1c0gr@", "tradlexdbase.mysql.dbaas.com.br");
-        private ConectaBanco ControllerBanco = new ConectaBanco();
+        private ConectaBanco ControllerBanco = new ConectaBanco("tradlexdbase","tradlexdbase","Int3rl3x1c0gr@", "tradlexdbase.mysql.dbaas.com.br");
+        //private ConectaBanco ControllerBanco = new ConectaBanco();
         private int EnviaComando(string query){
             int impacto = 0;
             if (ControllerBanco.AbreConexao() == true)
