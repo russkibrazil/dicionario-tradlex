@@ -165,10 +165,10 @@
     <Compile Include="Model\ConectaBanco.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Model\Equivalente.cs" />
-    <Compile Include="Model\frm_Frase.cs">
+    <Compile Include="frm_Frase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frm_Frase.Designer.cs">
+    <Compile Include="frm_Frase.Designer.cs">
       <DependentUpon>frm_Frase.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Itabelas.cs" />
@@ -216,7 +216,7 @@
     <EmbeddedResource Include="ImportaCsv.resx">
       <DependentUpon>ImportaCsv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frm_Frase.resx">
+    <EmbeddedResource Include="frm_Frase.resx">
       <DependentUpon>frm_Frase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

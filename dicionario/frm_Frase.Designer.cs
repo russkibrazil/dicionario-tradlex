@@ -42,7 +42,13 @@
             this.txtExemploTrad = new System.Windows.Forms.TextBox();
             this.comboCategoria = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnUltimo = new System.Windows.Forms.Button();
+            this.btnProx = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnPrimeiro = new System.Windows.Forms.Button();
+            this.btnApaga = new System.Windows.Forms.Button();
+            this.btnSalva = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtForiginal
@@ -85,7 +91,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 126);
+            this.label3.Location = new System.Drawing.Point(12, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 17);
             this.label3.TabIndex = 5;
@@ -94,7 +100,7 @@
             // txtCultura
             // 
             this.txtCultura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCultura.Location = new System.Drawing.Point(15, 146);
+            this.txtCultura.Location = new System.Drawing.Point(15, 191);
             this.txtCultura.Multiline = true;
             this.txtCultura.Name = "txtCultura";
             this.txtCultura.Size = new System.Drawing.Size(297, 98);
@@ -104,7 +110,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(339, 126);
+            this.label4.Location = new System.Drawing.Point(339, 171);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 17);
             this.label4.TabIndex = 7;
@@ -113,7 +119,7 @@
             // txtGramatica
             // 
             this.txtGramatica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGramatica.Location = new System.Drawing.Point(342, 146);
+            this.txtGramatica.Location = new System.Drawing.Point(342, 191);
             this.txtGramatica.Multiline = true;
             this.txtGramatica.Name = "txtGramatica";
             this.txtGramatica.Size = new System.Drawing.Size(300, 98);
@@ -159,7 +165,10 @@
             // 
             this.comboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCategoria.FormattingEnabled = true;
-            this.comboCategoria.Location = new System.Drawing.Point(12, 267);
+            this.comboCategoria.Items.AddRange(new object[] {
+            "Expressão Idiomática",
+            "Uso Comum"});
+            this.comboCategoria.Location = new System.Drawing.Point(12, 140);
             this.comboCategoria.Name = "comboCategoria";
             this.comboCategoria.Size = new System.Drawing.Size(300, 24);
             this.comboCategoria.TabIndex = 12;
@@ -168,27 +177,94 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 247);
+            this.label7.Location = new System.Drawing.Point(12, 120);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "Categoria";
             // 
-            // label8
+            // btnUltimo
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(431, 251);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "ininitivo original ";
+            this.btnUltimo.Enabled = false;
+            this.btnUltimo.Location = new System.Drawing.Point(667, 269);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(75, 23);
+            this.btnUltimo.TabIndex = 70;
+            this.btnUltimo.Text = ">|";
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            // 
+            // btnProx
+            // 
+            this.btnProx.Enabled = false;
+            this.btnProx.Location = new System.Drawing.Point(667, 240);
+            this.btnProx.Name = "btnProx";
+            this.btnProx.Size = new System.Drawing.Size(75, 23);
+            this.btnProx.TabIndex = 69;
+            this.btnProx.Text = ">";
+            this.btnProx.UseVisualStyleBackColor = true;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Enabled = false;
+            this.btnAnterior.Location = new System.Drawing.Point(667, 211);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
+            this.btnAnterior.TabIndex = 68;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.Enabled = false;
+            this.btnPrimeiro.Location = new System.Drawing.Point(667, 184);
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(75, 23);
+            this.btnPrimeiro.TabIndex = 67;
+            this.btnPrimeiro.Text = "|<";
+            this.btnPrimeiro.UseVisualStyleBackColor = true;
+            // 
+            // btnApaga
+            // 
+            this.btnApaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApaga.Location = new System.Drawing.Point(667, 112);
+            this.btnApaga.Name = "btnApaga";
+            this.btnApaga.Size = new System.Drawing.Size(75, 32);
+            this.btnApaga.TabIndex = 66;
+            this.btnApaga.Text = "Excluir";
+            this.btnApaga.UseVisualStyleBackColor = true;
+            // 
+            // btnSalva
+            // 
+            this.btnSalva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalva.Location = new System.Drawing.Point(667, 73);
+            this.btnSalva.Name = "btnSalva";
+            this.btnSalva.Size = new System.Drawing.Size(75, 33);
+            this.btnSalva.TabIndex = 64;
+            this.btnSalva.Text = "Salvar";
+            this.btnSalva.UseVisualStyleBackColor = true;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Location = new System.Drawing.Point(667, 37);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 30);
+            this.btnNovo.TabIndex = 65;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
             // 
             // frm_Frase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(764, 312);
+            this.Controls.Add(this.btnUltimo);
+            this.Controls.Add(this.btnProx);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnPrimeiro);
+            this.Controls.Add(this.btnApaga);
+            this.Controls.Add(this.btnSalva);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboCategoria);
             this.Controls.Add(this.label6);
@@ -203,6 +279,9 @@
             this.Controls.Add(this.txtFequivalente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtForiginal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(780, 350);
             this.Name = "frm_Frase";
             this.Text = "Fraseologia";
             this.ResumeLayout(false);
@@ -226,6 +305,12 @@
         private System.Windows.Forms.TextBox txtExemploTrad;
         private System.Windows.Forms.ComboBox comboCategoria;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnUltimo;
+        private System.Windows.Forms.Button btnProx;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnPrimeiro;
+        private System.Windows.Forms.Button btnApaga;
+        private System.Windows.Forms.Button btnSalva;
+        private System.Windows.Forms.Button btnNovo;
     }
 }
