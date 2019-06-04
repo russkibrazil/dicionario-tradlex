@@ -16,23 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categoriagram`
---
-
-DROP TABLE IF EXISTS `categoriagram`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categoriagram` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Descricao` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `sigla` varchar(4) COLLATE utf8_unicode_ci NOT NULL COMMENT '	',
-  `definicao` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `Id_UNIQUE` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `conjugacao_en`
 --
 
@@ -116,6 +99,27 @@ CREATE TABLE `equivalencias` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `fraseologia`
+--
+
+DROP TABLE IF EXISTS `fraseologia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fraseologia` (
+  `IdPalavra` int(11) NOT NULL,
+  `FraseOrig` varchar(100) NOT NULL,
+  `FraseEquiv` varchar(100) NOT NULL,
+  `ExemploOrig` varchar(100) DEFAULT NULL,
+  `ExemploEquiv` varchar(100) DEFAULT NULL,
+  `NotasCultura` text,
+  `NotasGramatica` text,
+  `Categoria` enum('I','C') NOT NULL,
+  PRIMARY KEY (`FraseOrig`,`FraseEquiv`,`Categoria`),
+  UNIQUE KEY `FraseOrig_UNIQUE` (`FraseOrig`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `palavra`
 --
 
@@ -156,21 +160,6 @@ CREATE TABLE `referencias` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `rubrica`
---
-
-DROP TABLE IF EXISTS `rubrica`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rubrica` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Descricao` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `sigla` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `usr`
 --
 
@@ -202,4 +191,4 @@ CREATE TABLE `usr` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-19 20:21:29
+-- Dump completed on 2019-06-04 21:09:42

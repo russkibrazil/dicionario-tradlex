@@ -19,6 +19,7 @@ namespace dicionario.Model
         public const string CONJUGACAOPT = "conjugacao_pt";
         public const string CONJUGACAOEN = "conjugacao_en";
         public const string EQUIVALENTE = "equivalencias";
+        public const string FRASEOLOGIA = "fraseologia";
     }
     internal class ConectaBanco
     {
