@@ -171,6 +171,7 @@
     <Compile Include="frm_Frase.Designer.cs">
       <DependentUpon>frm_Frase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Fraseologia.cs" />
     <Compile Include="Model\Itabelas.cs" />
     <Compile Include="Model\Palavra.cs" />
     <Compile Include="Model\Usuario.cs" />

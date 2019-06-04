@@ -44,6 +44,7 @@ namespace dicionario
             textCultura.Text = "";
             btnEquiv.Enabled = false;
             btnConjuga.Enabled = false;
+            btnFrase.Enabled = false;
         }
         private void LimpaModel()
         {
@@ -85,6 +86,7 @@ namespace dicionario
             ComboClasseGram.Text = p.ClasseGram;
             btnEquiv.Enabled = true;
             btnConjuga.Enabled = true;
+            btnFrase.Enabled = true;
         }
         private void AtivaNavegadores() {
             btnPrimeiro.Enabled = true;
@@ -377,6 +379,12 @@ namespace dicionario
                 ipal = mx;
                 MostraDados();
             }
+        }
+
+        private void btnFrase_Click(object sender, EventArgs e)
+        {
+            frm_Frase _Frase = new frm_Frase(p.id);
+            _Frase.ShowDialog();
         }
     }
 }

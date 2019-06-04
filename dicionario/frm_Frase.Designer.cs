@@ -192,6 +192,7 @@
             this.btnUltimo.TabIndex = 70;
             this.btnUltimo.Text = ">|";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnProx
             // 
@@ -202,6 +203,7 @@
             this.btnProx.TabIndex = 69;
             this.btnProx.Text = ">";
             this.btnProx.UseVisualStyleBackColor = true;
+            this.btnProx.Click += new System.EventHandler(this.btnProx_Click);
             // 
             // btnAnterior
             // 
@@ -212,6 +214,7 @@
             this.btnAnterior.TabIndex = 68;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnPrimeiro
             // 
@@ -222,6 +225,7 @@
             this.btnPrimeiro.TabIndex = 67;
             this.btnPrimeiro.Text = "|<";
             this.btnPrimeiro.UseVisualStyleBackColor = true;
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
             // 
             // btnApaga
             // 
@@ -232,6 +236,7 @@
             this.btnApaga.TabIndex = 66;
             this.btnApaga.Text = "Excluir";
             this.btnApaga.UseVisualStyleBackColor = true;
+            this.btnApaga.Click += new System.EventHandler(this.btnApaga_Click);
             // 
             // btnSalva
             // 
@@ -242,6 +247,7 @@
             this.btnSalva.TabIndex = 64;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
+            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
             // 
             // btnNovo
             // 
@@ -252,6 +258,7 @@
             this.btnNovo.TabIndex = 65;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frm_Frase
             // 
@@ -284,6 +291,7 @@
             this.MinimumSize = new System.Drawing.Size(780, 350);
             this.Name = "frm_Frase";
             this.Text = "Fraseologia";
+            this.Load += new System.EventHandler(this.frm_Frase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

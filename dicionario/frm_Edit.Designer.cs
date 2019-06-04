@@ -67,6 +67,7 @@
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.btnFrase = new System.Windows.Forms.Button();
             this.menu_barra.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -905,19 +906,19 @@
             // referênciasToolStripMenuItem
             // 
             this.referênciasToolStripMenuItem.Name = "referênciasToolStripMenuItem";
-            this.referênciasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.referênciasToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.referênciasToolStripMenuItem.Text = "Referências";
             this.referênciasToolStripMenuItem.Click += new System.EventHandler(this.referênciasToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // importarToolStripMenuItem
             // 
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.importarToolStripMenuItem.Text = "Importar...";
             this.importarToolStripMenuItem.Click += new System.EventHandler(this.importarToolStripMenuItem_Click);
             // 
@@ -947,7 +948,7 @@
             // 
             this.btnEquiv.Enabled = false;
             this.btnEquiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquiv.Location = new System.Drawing.Point(848, 474);
+            this.btnEquiv.Location = new System.Drawing.Point(848, 442);
             this.btnEquiv.Name = "btnEquiv";
             this.btnEquiv.Size = new System.Drawing.Size(123, 38);
             this.btnEquiv.TabIndex = 58;
@@ -959,7 +960,7 @@
             // 
             this.btnConjuga.Enabled = false;
             this.btnConjuga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConjuga.Location = new System.Drawing.Point(848, 432);
+            this.btnConjuga.Location = new System.Drawing.Point(848, 400);
             this.btnConjuga.Name = "btnConjuga";
             this.btnConjuga.Size = new System.Drawing.Size(123, 36);
             this.btnConjuga.TabIndex = 59;
@@ -1282,11 +1283,24 @@
             this.searchBox.TabIndex = 51;
             this.searchBox.Text = "Buscar...";
             // 
+            // btnFrase
+            // 
+            this.btnFrase.Enabled = false;
+            this.btnFrase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrase.Location = new System.Drawing.Point(848, 486);
+            this.btnFrase.Name = "btnFrase";
+            this.btnFrase.Size = new System.Drawing.Size(123, 34);
+            this.btnFrase.TabIndex = 65;
+            this.btnFrase.Text = "Fraseologia";
+            this.btnFrase.UseVisualStyleBackColor = true;
+            this.btnFrase.Click += new System.EventHandler(this.btnFrase_Click);
+            // 
             // frm_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 542);
+            this.Controls.Add(this.btnFrase);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUltimo);
             this.Controls.Add(this.btnProx);
@@ -1366,5 +1380,6 @@
         private System.Windows.Forms.ComboBox filterComboBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button btnFrase;
     }
 }
