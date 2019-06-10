@@ -311,12 +311,6 @@ namespace dicionario
             ICsv.Show();
         }
 
-        private void contatoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_contato cont = new frm_contato();
-            cont.ShowDialog();
-        }
-
         private void referênciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_referencia rf = new frm_referencia();
@@ -385,6 +379,12 @@ namespace dicionario
         {
             frm_Frase _Frase = new frm_Frase(p.id);
             _Frase.ShowDialog();
+        }
+
+        private void sobreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_About hlp = new frm_About();
+            hlp.ShowDialog();
         }
     }
 }

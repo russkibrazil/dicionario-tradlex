@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_About.Designer.cs">
+      <DependentUpon>frm_About.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Equivalente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +131,6 @@
     </Compile>
     <Compile Include="frm_configuracao.Designer.cs">
       <DependentUpon>frm_configuracao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_contato.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_contato.Designer.cs">
-      <DependentUpon>frm_contato.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Edit.cs">
       <SubType>Form</SubType>
@@ -184,6 +184,9 @@
       <DependentUpon>frm_visualizaverbete.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Referencia.cs" />
+    <EmbeddedResource Include="frm_About.resx">
+      <DependentUpon>frm_About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_conjuga.resx">
       <DependentUpon>frm_conjuga.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,9 +198,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_configuracao.resx">
       <DependentUpon>frm_configuracao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_contato.resx">
-      <DependentUpon>frm_contato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Edit.resx">
       <DependentUpon>frm_Edit.cs</DependentUpon>

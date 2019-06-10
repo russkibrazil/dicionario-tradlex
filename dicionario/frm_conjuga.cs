@@ -59,17 +59,17 @@ namespace dicionario
                 nPt.ConstrPretImp = txtC2.Text;
                 nPt.ExPretImp = txtE2.Text;
                 nPt.ConstrPretPer = txtC3.Text;
-                 nPt.ExPretPer = txtE3.Text;
-                 nPt.ConstrFutPres = txtC4.Text;
-                 nPt.ExFutPres = txtE4.Text;
-                 nPt.ConstrFutPret = txtC5.Text;
+                nPt.ExPretPer = txtE3.Text;
+                nPt.ConstrFutPres = txtC4.Text;
+                nPt.ExFutPres = txtE4.Text;
+                nPt.ConstrFutPret = txtC5.Text;
                 nPt.ExFutPret = txtE5.Text;
-                 nPt.ConstrInfPessoal = txtC6.Text;
+                nPt.ConstrInfPessoal = txtC6.Text;
                 nPt.ExInfPessoal = txtE6.Text;
                 nPt.ConstrParticipio = txtC7.Text;
                 nPt.ExParticipio = txtE7.Text;
-                 nPt.ConstrGerundio = txtC8.Text;
-                 nPt.ExGerundio = txtE8.Text;
+                nPt.ConstrGerundio = txtC8.Text;
+                nPt.ExGerundio = txtE8.Text;
                 crud.UpdateLine(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), nPt.ToListValores(), "idConjugacao=" + cPt.id.ToString());
                 cPt = nPt;
             }
@@ -95,6 +95,7 @@ namespace dicionario
                 crud.UpdateLine(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), nEn.ToListValores(), "idConjugacao=" + cEn.id.ToString());
                 cEn = nEn;
             }
+            InformaDiag.InformaSalvo();
         }
 
         private void frm_conjuga_Load(object sender, EventArgs e)

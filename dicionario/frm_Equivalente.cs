@@ -204,6 +204,7 @@ namespace dicionario
                 if(ativo.equivalente < 1)
                 {
                     InformaDiag.Erro("Selecione um equivalente na lista de pesquisa.");
+                    return;
                 }
                 else
                 {

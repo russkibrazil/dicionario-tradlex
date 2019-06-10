@@ -53,7 +53,6 @@
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tip_Dicas = new System.Windows.Forms.ToolTip(this.components);
             this.btnEquiv = new System.Windows.Forms.Button();
             this.btnConjuga = new System.Windows.Forms.Button();
@@ -68,6 +67,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.btnFrase = new System.Windows.Forms.Button();
+            this.sobreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_barra.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -926,7 +926,7 @@
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ajudaToolStripMenuItem,
-            this.contatoToolStripMenuItem});
+            this.sobreToolStripMenuItem1});
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
             this.sobreToolStripMenuItem.Text = "Sobre...";
@@ -934,15 +934,8 @@
             // ajudaToolStripMenuItem
             // 
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
-            // 
-            // contatoToolStripMenuItem
-            // 
-            this.contatoToolStripMenuItem.Name = "contatoToolStripMenuItem";
-            this.contatoToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
-            this.contatoToolStripMenuItem.Text = "Contato";
-            this.contatoToolStripMenuItem.Click += new System.EventHandler(this.contatoToolStripMenuItem_Click);
             // 
             // btnEquiv
             // 
@@ -1295,6 +1288,13 @@
             this.btnFrase.UseVisualStyleBackColor = true;
             this.btnFrase.Click += new System.EventHandler(this.btnFrase_Click);
             // 
+            // sobreToolStripMenuItem1
+            // 
+            this.sobreToolStripMenuItem1.Name = "sobreToolStripMenuItem1";
+            this.sobreToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.sobreToolStripMenuItem1.Text = "Sobre";
+            this.sobreToolStripMenuItem1.Click += new System.EventHandler(this.sobreToolStripMenuItem1_Click);
+            // 
             // frm_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1364,7 +1364,6 @@
         private System.Windows.Forms.ToolStripMenuItem referênciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contatoToolStripMenuItem;
         private System.Windows.Forms.ToolTip tip_Dicas;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
@@ -1381,5 +1380,6 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button btnFrase;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem1;
     }
 }
