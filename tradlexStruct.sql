@@ -1,10 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.23, for Win32 (x86)
---
--- Host: localhost    Database: tradlex
--- ------------------------------------------------------
--- Server version	5.7.22-log
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+﻿/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
@@ -23,7 +17,7 @@ DROP TABLE IF EXISTS `conjugacao_en`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `conjugacao_en` (
-  `idconjugacao` int(11) NOT NULL AUTO_INCREMENT,
+  `idconjugacao` int(11) NOT NULL,
   `ConstrPresente` text COLLATE utf8_unicode_ci,
   `ExPresente` text COLLATE utf8_unicode_ci,
   `ConstrPassado` text COLLATE utf8_unicode_ci,
@@ -42,7 +36,7 @@ CREATE TABLE `conjugacao_en` (
   `ExPasCon` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`idconjugacao`),
   UNIQUE KEY `idconjugacao_UNIQUE` (`idconjugacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +47,7 @@ DROP TABLE IF EXISTS `conjugacao_pt`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `conjugacao_pt` (
-  `idconjugacao` int(11) NOT NULL AUTO_INCREMENT,
+  `idconjugacao` int(11) NOT NULL,
   `ConstrPresente` text COLLATE utf8_unicode_ci,
   `ExPresente` text COLLATE utf8_unicode_ci,
   `ConstrPretImp` text COLLATE utf8_unicode_ci,
@@ -72,7 +66,7 @@ CREATE TABLE `conjugacao_pt` (
   `ExGerundio` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`idconjugacao`),
   UNIQUE KEY `idconjugacao_UNIQUE` (`idconjugacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +127,6 @@ CREATE TABLE `palavra` (
   `Idioma` char(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'PT',
   `notas_gramatica` tinytext COLLATE utf8_unicode_ci,
   `notas_cultura` text COLLATE utf8_unicode_ci,
-  `Id_conjuga` int(11) DEFAULT NULL,
   `Genero` enum('M','F','N','S') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'S',
   `Definicao` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`Lema`,`ClasseGram`,`Idioma`,`Genero`),
@@ -141,6 +134,50 @@ CREATE TABLE `palavra` (
   UNIQUE KEY `IDX_EntradaUnica` (`Lema`,`Idioma`,`ClasseGram`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tradlex`.`palavra_AFTER_INSERT` AFTER INSERT ON `palavra` FOR EACH ROW
+BEGIN
+ IF (new.Idioma = 'PT') THEN
+  INSERT INTO conjugacao_pt (idconjugacao) VALUES (new.Id);
+ ELSEIF (new.Idioma = 'EN') THEN
+  INSERT INTO conjugacao_en (idconjugacao) VALUES (new.Id);
+  END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tradlex`.`palavra_BEFORE_DELETE` BEFORE DELETE ON `palavra` FOR EACH ROW
+BEGIN
+ if (old.Idioma = 'PT') then
+	DELETE FROM conjugacao_pt WHERE idconjugacao = old.Id;
+ elseif (old.Idioma = 'EN') then
+	DELETE FROM conjugacao_en WHERE idconjugacao = old.Id;
+ end if;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `referencias`
@@ -191,4 +228,4 @@ CREATE TABLE `usr` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-04 21:09:42
+-- Dump completed on 2019-06-11 21:08:45

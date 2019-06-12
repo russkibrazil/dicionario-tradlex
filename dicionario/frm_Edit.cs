@@ -244,19 +244,6 @@ namespace dicionario
             {
                 if (crud.InsereLinha(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores()) > 0)
                 {
-                    p = Palavra.ConverteObject(crud.SelecionarTabela(tabelasBd.PALAVRA, Palavra.ToListTabela(true), "lema='" + p.lema + "' AND ClasseGram='" + p.ClasseGram + "' AND idioma='" + p.idioma + "' AND Genero='" + p.Genero + "'")).First();
-                    ///É PRECISO QUE SE IDENTIFIQUE QUAL É O ID RECÉM SALVO, RECUPERAR E ENTÃO ATUALIZA-LO COM A INFORMAÇÃO DO REGISTRO DA CONJUGAÇÃO CORRESPONDENTE
-                    if (p.idioma == "PT")
-                    {
-                        crud.InsereLinha(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), new ConjugacaoPt().ToListValores());
-                        p.id_conjuga = ConjugacaoPt.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOPT, ConjugacaoPt.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
-                    }
-                    else
-                    {
-                        crud.InsereLinha(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), new ConjugacaoEn().ToListValores());
-                        p.id_conjuga = ConjugacaoEn.ConverteObject(crud.SelecionarTabela(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(), "", "ORDER BY idconjugacao DESC LIMIT 2")).First().id;
-                    }
-                    crud.UpdateLine(tabelasBd.PALAVRA, Palavra.ToListTabela(), p.ToListValores(), "id=" + p.id.ToString());
                     InformaDiag.Informa("Salvo!");
                     LimpaCampos();
                     LimpaModel();
@@ -325,15 +312,8 @@ namespace dicionario
 
         private void btnConjuga_Click(object sender, EventArgs e)
         {
-            if (p.id_conjuga > 0)
-            {
-                frm_conjuga fc = new frm_conjuga(p.id_conjuga, p.idioma);
+                frm_conjuga fc = new frm_conjuga(p.id, p.idioma);
                 fc.ShowDialog();
-            }
-            else
-            {
-                InformaDiag.Informa("Salve as alterações antes de acessar as conjugações");
-            }
         }
 
         private void btnPrimeiro_Click(object sender, EventArgs e)

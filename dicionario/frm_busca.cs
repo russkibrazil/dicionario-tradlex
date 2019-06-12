@@ -82,7 +82,7 @@ namespace dicionario
             pesquisa = "";
             foreach (Palavra p in listaPEquiv)
             {
-                pesquisa += ("idconjugacao=" + p.id_conjuga.ToString() + " OR ");
+                pesquisa += ("idconjugacao=" + p.id.ToString() + " OR ");
             }
             pesquisa = pesquisa.Remove(pesquisa.Count() - 4);
             listaConjugaEn = ConjugacaoEn.ConverteObject(cRUD.SelecionarTabela(tabelasBd.CONJUGACAOEN, ConjugacaoEn.ToListTabela(true), pesquisa));

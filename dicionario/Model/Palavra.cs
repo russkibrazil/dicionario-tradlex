@@ -14,7 +14,6 @@ namespace dicionario.Model
         public string idioma { get; set; }
         public string notas_gramatica { get; set; }
         public string nota_cultura { get; set; }
-        public int id_conjuga { get; set; }
         public string Genero { get; set; }
         public string Definicao { get; set; }
 
@@ -28,7 +27,6 @@ namespace dicionario.Model
             val.Add(idioma);
             val.Add(notas_gramatica);
             val.Add(nota_cultura);
-            val.Add(id_conjuga.ToString());
             val.Add(Genero);
             val.Add(Definicao);
             return val;
@@ -43,8 +41,6 @@ namespace dicionario.Model
 	        val.Add("ClasseGram");
             val.Add("Idioma");
             val.Add("notas_gramatica");
-            val.Add("notas_cultura");
-            val.Add("Id_conjuga");
             val.Add("Genero");
             val.Add("Definicao");
             return val;
@@ -78,7 +74,6 @@ namespace dicionario.Model
             p.idioma = lista.ElementAt(i++);
             p.notas_gramatica = lista.ElementAt(i++);
             p.nota_cultura = lista.ElementAt(i++);
-            p.id_conjuga = int.Parse(lista.ElementAt(i++));
             p.Genero = lista.ElementAt(i++);
             p.Definicao = lista.ElementAt(i++);
             return p;
@@ -97,7 +92,6 @@ namespace dicionario.Model
             saida.idioma = lista[i++].ToString();
             saida.notas_gramatica = lista[i++].ToString();
             saida.nota_cultura = lista[i++].ToString();
-            saida.id_conjuga = int.Parse(lista.ElementAt(i++).ToString());
             saida.Genero = lista[i++].ToString();
             saida.Definicao = lista[i++].ToString();          
             return saida;
