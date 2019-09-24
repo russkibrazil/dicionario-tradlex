@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>dicionario</RootNamespace>
     <AssemblyName>dicionario</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -31,6 +31,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,12 +99,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_About.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_About.Designer.cs">
-      <DependentUpon>frm_About.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_Equivalente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +120,6 @@
     </Compile>
     <Compile Include="frm_controledeusuario.Designer.cs">
       <DependentUpon>frm_controledeusuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_configuracao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_configuracao.Designer.cs">
-      <DependentUpon>frm_configuracao.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Edit.cs">
       <SubType>Form</SubType>
@@ -184,9 +173,6 @@
       <DependentUpon>frm_visualizaverbete.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Referencia.cs" />
-    <EmbeddedResource Include="frm_About.resx">
-      <DependentUpon>frm_About.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_conjuga.resx">
       <DependentUpon>frm_conjuga.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,9 +181,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_busca.resx">
       <DependentUpon>frm_busca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_configuracao.resx">
-      <DependentUpon>frm_configuracao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Edit.resx">
       <DependentUpon>frm_Edit.cs</DependentUpon>
@@ -228,6 +211,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="dicionario_TemporaryKey.pfx" />
     <None Include="packages.config" />
